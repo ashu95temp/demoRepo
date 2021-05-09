@@ -1,0 +1,3 @@
+loginPage_username_inputFiled: 'input#user_login'
+loginPage_password_inputFiled: 'input#user_password'
+loginPage_signIn_button: 'input[value="Sign in"][name="submit"]'

@@ -1,0 +1,3 @@
+nameInputField: 'input#developer-name'
+preferredInterfaceDropdownField: '#preferred-interface'
+experienceDropdownField: '#g2599-experienceinyears'

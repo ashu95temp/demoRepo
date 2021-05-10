@@ -1,0 +1,3 @@
+homePage_accountSummaryTab_link: 'li#account_summary_tab > a[href$="account-summary.html"]'
+homePage_usernameDropdown_link: 'i.icon-user'
+homePage_usernameDropdown_logoutOption: 'a#logout_link'

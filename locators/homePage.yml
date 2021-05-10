@@ -1,1 +1,0 @@
-homePage_accountSummaryTab_link: 'li#account_summary_tab > a[href$="account-summary.html"]'

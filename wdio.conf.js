@@ -52,7 +52,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -79,7 +79,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'warn',
     //
     // Set specific log levels per logger
     // loggers:
@@ -300,8 +300,12 @@ exports.config = {
     // before: function (capabilities, specs) {
     // },
     before: function () {
+        const chai = require('chai');
         const locators = require('./features/support/supportFunctions').getSelector();
         const copyText = require('./features/support/supportFunctions').getCopyText();
+        global.expect = chai.expect;
+        global.assert = chai.assert;
+        global.should = chai.should();
         global.locators = locators;
         global.copyText = copyText;
     },
@@ -332,24 +336,11 @@ exports.config = {
      */
     // afterStep: function (step, context) {
     // },
-    afterStep: function (step, context) {
-        console.log('##############step-start####################');
-        console.log(step);
-        console.log('##############step-end####################');
-        console.log('##############context-start####################');
-        console.log(context);
-        console.log('##############context-end####################');
-    },
     /**
      * Runs after a Cucumber scenario
      */
     // afterScenario: function (world) {
     // },
-    afterScenario: function (world) {
-        console.log('##############world-start####################');
-        console.log(world);
-        console.log('##############world-end####################');
-    },
     /**
      * Runs after a Cucumber feature
      */
@@ -374,17 +365,6 @@ exports.config = {
      */
     // after: function (result, capabilities, specs) {
     // },
-    after: function (result, capabilities, specs) {
-        console.log('##############result-start####################');
-        console.log(result);
-        console.log('##############result-end####################');
-        console.log('##############capabilities-start####################');
-        console.log(capabilities);
-        console.log('##############capabilities-end####################');
-        console.log('##############specs-start####################');
-        console.log(specs);
-        console.log('##############specs-end####################');
-    },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {Object} config wdio configuration object
